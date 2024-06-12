@@ -150,9 +150,10 @@ export default function Profile() {
   
 
   return (
-    <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl font-semibold 
-      text-center my-7'>Profile</h1>
+    <div className='p-3 w-[98%] md:w-[80%] lg:w-[60%]  mx-auto'>
+     <div>
+       <h1 className='text-3xl font-semibold 
+      text-center my-7 text-blue-600'>Profile</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <input onChange={(e) => setFile(e.target.files[0])} 
         type="file" ref={fileRef} hidden 
@@ -175,24 +176,24 @@ export default function Profile() {
         </p>
         <input type="text" placeholder='username' 
         defaultValue={currentUser.username}
-        className='border p-3 rounded-lg' id='username' 
+        className='border p-3 rounded-lg outline-none focus:outline-blue-600 active:outline-blue-600' id='username' 
         onChange={handleChange} />
         <input type="email" placeholder='email' 
         defaultValue={currentUser.email} 
-        className='border p-3 rounded-lg' id='email' 
+        className='border p-3 rounded-lg outline-none focus:outline-blue-600 active:outline-blue-600' id='email' 
         onChange={handleChange} />
         <input type="password" placeholder='password' 
-        className='border p-3 rounded-lg' id='password' />
+        className='border p-3 rounded-lg outline-none focus:outline-blue-600 active:outline-blue-600' id='password' />
         <button disabled={loading} className='bg-slate-700 text-white 
         rounded-lg p-3 uppercase hover:opacity-95 
         disabled:opacity-80'>
           {loading ? 'Loading...' : 'update'}
         </button>
-        <Link className='bg-green-700 text-white 
-        p-3 rounded-lg uppercase text-center hover:opacity-95' to={"/create-listing"}>
-          Create Listing
-        </Link>
+        
       </form>
+     </div>
+
+     
 
       <div className='flex justify-between mt-5'>
         <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer'>Delete 
@@ -201,11 +202,34 @@ export default function Profile() {
         out</span>
       </div>
 
+      <div className='my-4 border-t-4   justify-center'>
+      <h1 className='text-3xl font-semibold 
+      text-center my-7 text-blue-600'>Create Listing</h1>
+      <h3 className='mb-8'>
+        You can create listing by clicking on the below button, you have to provide some neccessery information for listing. 
+        Thank you
+      </h3>
+      <Link className='bg-green-700 text-white 
+        p-3 px-8 rounded-lg uppercase text-center my-4 ' to={"/create-listing"}>
+          Create Listing
+        </Link>
+      </div>
+
       <p className='text-red-700 mt-5'>{error ? error : ''}</p>
       <p className='text-green-700 mt-5'>{updateSuccess ? 'User is updated successfully!' : ''}</p>
-      <button onClick={handleShowListings} className='text-green-700 w-full'>Show Listings</button>
+      <div className='my-4 border-t-4   justify-center'>
+      <h1 className='text-3xl font-semibold 
+      text-center my-7 text-blue-600'>Your Listing</h1>
+      <h3 className='mb-8'>
+       You Can Check your listings by clicking on the below button 
+        Thank you
+      </h3>
+      <button onClick={handleShowListings} className='text-white py-4 rounded-md bg-blue-600 p-2 w-full'>Show Listings</button>
       <p className='text-red-700 mt-5'>{showListingsError ? 'Error showing listings' : ''}</p>
+      </div>
 
+     
+     
       {userListings && userListings.length > 0 && 
       <div className='flex flex-col gap-4'>
         <h1 className='text-center mt-7 text-2xl font-semibold'>Your Listings</h1>
@@ -214,14 +238,14 @@ export default function Profile() {
           <Link to={`/listings/${listing._id}`}>
             <img className='h-16 w-16 object-contain' src={listing.imageUrls[0]} alt="listing cover" />
           </Link>
-          <Link className='flex-1 text-slate-700 font-semibold hover:underline truncate' to={`/listings/${listing._id}`}>
+          <Link className='flex-1 text-slate-700 font-semibold hover:underline truncate' to={`/listing/${listing._id}`}>
             <p>{listing.name}</p>
           </Link>
   
-          <div className='flex flex-col items-center'>
-            <button onClick={() => handleListingDelete(listing._id)} className='text-red-700 uppercase'>Delete</button>
+          <div className='flex  gap-4 items-center'>
+            <button onClick={() => handleListingDelete(listing._id)} className='text-white px-4 py-2 bg-red-700 rounded-lg uppercase'>Delete</button>
             <Link to={`/update-listing/${listing._id}`}>
-              <button className='text-green-700 uppercase'>Edit</button>
+              <button className='text-white px-4 py-2 bg-green-700 rounded-lg uppercase'>Edit</button>
             </Link>
           </div>
         </div>

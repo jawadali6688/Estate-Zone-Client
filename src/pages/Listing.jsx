@@ -62,14 +62,15 @@ export default function Listing() {
                   style={{
                     background: `url(${url}) center no-repeat`,
                     backgroundSize: 'cover',
+                    borderRadius: '12px'
                   }}
                 ></div>
               </SwiperSlide>
             ))}
         </Swiper>
-        <div className='fixed top-[13%] right-[3%] z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer'>
+        <div className='fixed top-[13%] right-[3%] z-10  mt-8  border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer'>
             <FaShare
-              className='text-slate-500'
+              className='text-slate-500 my-4'
               onClick={() => {
                 navigator.clipboard.writeText(window.location.href);
                 setCopied(true);

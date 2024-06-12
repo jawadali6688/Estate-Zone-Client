@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function About() {
   return (
-    <div className='pt-28 px-4 max-w-6xl mx-auto'>
+    <div className='px-4 max-w-6xl mx-auto'>
        <div className='grid grid-cols-1 gap-4'>
         <span className='flex flex-col gap-4'>
         <h1 className='text-blue-700 font-bold text-3xl lg:text-6xl'>

@@ -47,7 +47,7 @@ export default function Home() {
   return (
     <div>
       {/* top */}
-      <div className='flex flex-col gap-6 mt-4 p-28 px-3 max-w-6xl mx-auto'>
+      <div className='flex flex-col gap-6 mt-4 px-3 max-w-6xl mx-auto'>
         <div className='grid grid-cols-1 gap-4'>
         <span className='flex flex-col gap-4'>
         <h1 className='text-blue-700 font-bold text-3xl lg:text-6xl'>
@@ -79,12 +79,11 @@ Start your journey to a new home with Estate Zone.
         </Link>
       </div>
 
-      <div className='flex flex-col px-4 md:p-0 gap-6 max-w-6xl mx-auto'>
+      <div className='flex flex-col px-8 my-4 md:p-0 gap-6 max-w-6xl mx-auto'>
         <div className='grid grid-cols-1 gap-4'>
         <span className='flex flex-col gap-4'>
         <h1 className='text-blue-700 font-bold text-3xl'>
           Latest Listings here
-          <br />
           check them and enjoy!
         </h1>
        
@@ -96,6 +95,7 @@ Start your journey to a new home with Estate Zone.
       
 
       {/* swiper */}
+      <div className='max-w-6xl mx-auto '>
       <Swiper navigation>
         {offerListings &&
           offerListings.length > 0 &&
@@ -105,6 +105,7 @@ Start your journey to a new home with Estate Zone.
                 style={{
                   background: `url(${listing.imageUrls[0]}) center no-repeat`,
                   backgroundSize: 'cover',
+                  borderRadius: '12px'
                 }}
                 className='h-[500px]'
 
@@ -112,6 +113,7 @@ Start your journey to a new home with Estate Zone.
             </SwiperSlide>
           ))}
       </Swiper>
+      </div>
 
       {/* listing results for offer, sale and rent */}
 
@@ -129,7 +131,7 @@ Start your journey to a new home with Estate Zone.
             </div>
           </div>
         )}
-        {rentListings.length === 0 && (
+        {rentListings.length === 0 || !rentListings && (
           <div className=''>
             <h1 className='text-gray-700 font-bold text-lg'>
           No Listing's Data
@@ -137,48 +139,6 @@ Start your journey to a new home with Estate Zone.
           </div>
         )}
         
-      </div>
-
-      <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10'>
-        {offerListings && offerListings.length > 0 && (
-          <div className=''>
-            <div className='my-3'>
-              <h2 className='text-2xl font-semibold text-slate-600'>Recent offers</h2>
-              <Link className='text-sm text-blue-800 hover:underline' to={'/search?offer=true'}>Show more offers</Link>
-            </div>
-            <div className='flex flex-wrap gap-4'>
-              {offerListings.map((listing) => (
-                <ListingItem listing={listing} key={listing._id} />
-              ))}
-            </div>
-          </div>
-        )}
-        {rentListings && rentListings.length > 0 && (
-          <div className=''>
-            <div className='my-3'>
-              <h2 className='text-2xl font-semibold text-slate-600'>Recent places for rent</h2>
-              <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=rent'}>Show more places for rent</Link>
-            </div>
-            <div className='flex flex-wrap gap-4'>
-              {rentListings.map((listing) => (
-                <ListingItem listing={listing} key={listing._id} />
-              ))}
-            </div>
-          </div>
-        )}
-        {saleListings && saleListings.length > 0 && (
-          <div className=''>
-            <div className='my-3'>
-              <h2 className='text-2xl font-semibold text-slate-600'>Recent places for sale</h2>
-              <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=sale'}>Show more places for sale</Link>
-            </div>
-            <div className='flex flex-wrap gap-4'>
-              {saleListings.map((listing) => (
-                <ListingItem listing={listing} key={listing._id} />
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );

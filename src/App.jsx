@@ -12,14 +12,19 @@ import Listing from './pages/Listing'
 import Search from './pages/Search'
 import Footer from './components/Footer'
 import ListingData from './pages/ListingData'
+import Layout from './Layout'
+import ScrollToTop from './ScrollToTop'
 
 
 export default function App() {
   return (
     <BrowserRouter>
-    <Header />
+    <ScrollToTop/>
+
       <Routes>
-        <Route path='/' element={<Home />} />
+       <Route path='' element = {<Layout/>}> 
+
+       <Route path='/' element={<Home />} />
         <Route path='/sign-in' element={<SignIn />} />
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/about' element={<About />} />
@@ -32,9 +37,9 @@ export default function App() {
           <Route path='/create-listing' element={<CreateListing />} />
           <Route path='/update-listing/:listingId' element={<UpdateListing />} /> 
         </Route>
+       </Route>
         
       </Routes>
-      <Footer/>
     </BrowserRouter>
   )
 }

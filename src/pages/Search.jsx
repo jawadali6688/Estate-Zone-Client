@@ -170,10 +170,10 @@ export default function Search() {
                     <span>Parking</span>
                 </div>
                 <div className='flex gap-2'>
-                    <input type="checkbox" id="furnished" 
+                    <input type="hidden" id="furnished" 
                     className='w-5' onChange={handleChange} 
                     checked={sidebardata.furnished} />
-                    <span>Furnished</span>
+                    {/* <span>Furnished</span> */}
                 </div>
             </div>
 

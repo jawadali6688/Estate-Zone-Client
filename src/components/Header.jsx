@@ -2,6 +2,7 @@ import { FaSearch, FaBars } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import Logo from './Logo';
 
 export default function Header() {
   const { currentUser } = useSelector(state => state.user);
@@ -31,13 +32,14 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-gray-200 py-2 px-4 shadow-md shadow-gray-400 fixed top-0 w-full">
+    <header className="bg-gray-200 py-2 px-4 shadow-md shadow-gray-400 fixed top-0 w-full z-50">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
-          <h1 className="font-bold flex flex-wrap gap-1 text-lg">
+          {/* <h1 className="font-bold flex flex-wrap gap-1 text-lg">
             <span className="text-blue-600">Estate</span>
             <span className="text-blue-900">Zone</span>
-          </h1>
+          </h1> */}
+          <Logo/>
         </Link>
         <form onSubmit={handleSubmit} className="bg-slate-100 p-3 rounded-lg hidden md:flex items-center ">
           <input
@@ -99,12 +101,14 @@ export default function Header() {
               <Link to="/about" onClick={toggleSidebar}>
                 <li className="text-gray-500 text-lg  cursor-pointer">About</li>
               </Link>
-              <Link to="/listings" onClick={toggleSidebar}>
+              <Link to="/listings"
+              
+              onClick={toggleSidebar}>
                 <li className="text-gray-500 text-lg  cursor-pointer">Listings</li>
               </Link>
-              <Link to="/privacy" onClick={toggleSidebar}>
+              {/* <Link to="/privacy" onClick={toggleSidebar}>
                 <li className="text-gray-500 text-lg  cursor-pointer">Privacy</li>
-              </Link>
+              </Link> */}
               <Link to="/profile" onClick={toggleSidebar}>
                 {currentUser ? (
                   <img className="rounded-full h-7 w-7 object-cover" src={currentUser.avatar} alt="profile" />

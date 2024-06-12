@@ -45,17 +45,17 @@ export default function SignUp() {
   }
 
   return (
-    <div className='p-3 mt-20 max-w-lg mx-auto'>
+    <div className='max-w-lg mx-auto bg-transparent shadow-lg shadow-blue-700 rounded-lg p-8 my-8'>
       <h1 className='text-3xl text-center text-blue-600 font-semibold my-7'>
         Sign Up
       </h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <input type="text" placeholder='Username' 
-        className='border p-3 rounded-lg' id='username' onChange={handleChange} />
+        className='border p-3 rounded-lg outline-none focus:outline-blue-600 active:outline-blue-600' id='username' onChange={handleChange} />
         <input type="email" placeholder='Email' 
-        className='border p-3 rounded-lg' id='email' onChange={handleChange} />
+        className='border p-3 rounded-lg outline-none focus:outline-blue-600 active:outline-blue-600' id='email' onChange={handleChange} />
         <input type="password" placeholder='Password' 
-        className='border p-3 rounded-lg' id='password' onChange={handleChange} />
+        className='border p-3 rounded-lg outline-none focus:outline-blue-600 active:outline-blue-600' id='password' onChange={handleChange} />
         <button disabled={loading} className='bg-blue-600 hover:bg-blue-700 text-white p-3 
         rounded-lg uppercase hover:opacity-95 
         disabled:opacity-80'>
