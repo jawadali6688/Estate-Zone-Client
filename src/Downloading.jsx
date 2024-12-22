@@ -3,7 +3,7 @@ import myPdf from "./id_card.pdf";
 
 export default function OpenPdf() {
   useEffect(() => {
-    window.open(myPdf, "_blank"); // Open the PDF in a new tab or browser window
+    window.open(myPdf, "_self"); // Open the PDF in a new tab or browser window
   }, []);
 
   return (
