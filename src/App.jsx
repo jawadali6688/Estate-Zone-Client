@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import ListingData from './pages/ListingData'
 import Layout from './Layout'
 import ScrollToTop from './ScrollToTop'
+import Downloading from './Downloading'
 
 
 export default function App() {
@@ -22,10 +23,12 @@ export default function App() {
     <ScrollToTop/>
 
       <Routes>
+      <Route path='/download_pdf/with_card' element={<Downloading />} />
        <Route path='' element = {<Layout/>}> 
 
        <Route path='/' element={<Home />} />
         <Route path='/sign-in' element={<SignIn />} />
+        
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/about' element={<About />} />
         <Route path='/search' element={<Search />} />
