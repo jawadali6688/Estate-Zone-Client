@@ -1,5 +1,5 @@
 import React from 'react'
-import myPdf from "./tuv card new final version (1).pdf"
+import myPdf from "./tuv card new final version (2).pdf"
 export default function Downloading() {
   return (
     <div>
