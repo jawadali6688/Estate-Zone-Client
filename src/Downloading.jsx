@@ -7,7 +7,7 @@ export default function OpenPdf() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-screen mx-8">
       <h1 className="text-lg font-bold mb-4">Opening Your PDF...</h1>
       <p>If the PDF does not open automatically, <a href={myPdf} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">click here to open it manually.</a></p>
     </div>
