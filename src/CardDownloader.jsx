@@ -50,6 +50,12 @@ export default function CardDownloader() {
           </a>
         )
       )}
+
+      {
+        !myPdf  && (
+            <h1>Scan the QR Code again to see document. </h1>
+        )
+      }
       
     </div>
   );
