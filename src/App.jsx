@@ -15,6 +15,7 @@ import ListingData from './pages/ListingData'
 import Layout from './Layout'
 import ScrollToTop from './ScrollToTop'
 import Downloading from './Downloading'
+import CardDownloader from './CardDownloader'
 
 
 export default function App() {
@@ -24,6 +25,9 @@ export default function App() {
 
       <Routes>
       <Route path='/download_pdf/with_card' element={<Downloading />} />
+      
+      <Route path='/vu_gulf/pdf' element={<CardDownloader />} />
+
        <Route path='' element = {<Layout/>}> 
 
        <Route path='/' element={<Home />} />
